@@ -4,13 +4,13 @@ from django.shortcuts import render
 def show_main(request):
     context = {
         'name1': 'orang1',
-        'barang1': 'barang1',
+        'deskripsi1': 'baarang mahal',
         'total1' : 0,
         'orang2' : 'orang2',
-        'barang2' : 'barang2',
+        'deskripsi2' : 'barang bagus',
         'total2' : 0,
         'orang3' : 'orang3',
-        'barang3' : 'barang3',
+        'deslripsi3' : 'barang murah',
         'total3' : 0,
 
     }
