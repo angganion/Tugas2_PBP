@@ -1,7 +1,7 @@
 from django.shortcuts import render
 import requests
 from django.http import HttpResponse
-
+import random
 # Create your views here.\
 def show_main(request):
     context = {
@@ -15,6 +15,7 @@ def show_main(request):
         'deskripsi3' : 'barang murah',
         'total3' : 0,
         'random_image' : requests.get('https://cataas.com/cat/says/hello%20world!').url,
+        'gacor' : random.choice(range(1000, 10000000))
     }
 
     return render(request, "main.html", context)
