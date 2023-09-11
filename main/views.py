@@ -3,6 +3,13 @@ import requests
 from django.http import HttpResponse
 import random
 # Create your views here.\
+
+def add_zero(a):
+    kode = str(a)
+    if len(kode) < 8:
+        kode = ("0"*(8-len(kode))) + str(a)
+    return kode
+
 def show_main(request):
     context = {
         'name1': 'orang1',
@@ -15,7 +22,7 @@ def show_main(request):
         'deskripsi3' : 'barang murah',
         'total3' : 0,
         'random_image' : requests.get('https://cataas.com/cat/says/hello%20world!').url,
-        'gacor' : random.choice(range(1000, 10000000))
+        'gacor' : add_zero(random.choice(range(1000, 10000000)))
     }
 
     return render(request, "main.html", context)
