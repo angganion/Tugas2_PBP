@@ -1,4 +1,6 @@
 from django.shortcuts import render
+import requests
+from django.http import HttpResponse
 
 # Create your views here.\
 def show_main(request):
@@ -12,7 +14,11 @@ def show_main(request):
         'name3' : 'orang3',
         'deskripsi3' : 'barang murah',
         'total3' : 0,
-
+        'random_image' : requests.get('http://thecatapi.com/api/images/get?format=src&type=png'),
     }
 
     return render(request, "main.html", context)
+
+def show_random_image(request):
+    r = requests.get('http://thecatapi.com/api/images/get?format=src&type=png')
+    return HttpResponse( r.content, content_type="image/png")
