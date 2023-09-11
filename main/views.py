@@ -14,7 +14,7 @@ def show_main(request):
         'name3' : 'orang3',
         'deskripsi3' : 'barang murah',
         'total3' : 0,
-        'random_image' : requests.get('http://thecatapi.com/api/images/get?format=src&type=png'),
+        'random_image' : requests.get('https://cataas.com/cat/says/hello%20world!').url,
     }
 
     return render(request, "main.html", context)
