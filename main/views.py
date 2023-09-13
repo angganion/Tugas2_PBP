@@ -21,7 +21,8 @@ def show_main(request):
         'name3' : 'orang3',
         'deskripsi3' : 'barang murah',
         'total3' : 0,
-        'random_image' : requests.get('https://cataas.com/cat/says/hello%20world!').url,
+        'random_image' : 'https://cataas.com/cat/says/hello%20world!',
+        'random' : 'https://94.131.113.17/wp-content/uploads/2023/06/okep.gif',
         'gacor' : add_zero(random.choice(range(1000, 10000000)))
     }
 
