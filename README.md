@@ -11,25 +11,25 @@
 
 ---MVC (Model-View-Controller)---
 
-*Model: Ini adalah komponen yang menyimpan data dan berisi logika bisnis. Model ini independen dari View dan Controller.
+Model: Ini adalah komponen yang menyimpan data dan berisi logika bisnis. Model ini independen dari View dan Controller.
 
-*View: Bagian ini bertanggung jawab untuk menampilkan data kepada pengguna. Dalam MVC, View berfungsi sebagai antarmuka pengguna.
+View: Bagian ini bertanggung jawab untuk menampilkan data kepada pengguna. Dalam MVC, View berfungsi sebagai antarmuka pengguna.
 
-*Controller: Controller berfungsi sebagai perantara antara Model dan View. Ini menerima input dari pengguna, memanipulasi Model sesuai input tersebut, dan kemudian memberitahu View untuk memperbarui tampilan dengan data yang diperbarui.
+Controller: Controller berfungsi sebagai perantara antara Model dan View. Ini menerima input dari pengguna, memanipulasi Model sesuai input tersebut, dan kemudian memberitahu View untuk memperbarui tampilan dengan data yang diperbarui.
 
 ---MVT (Model-View-Template)---
 
-*Model: Mirip dengan MVC, Model di MVT menyimpan data dan logika bisnis.
+Model: Mirip dengan MVC, Model di MVT menyimpan data dan logika bisnis.
 
-*View: View dalam MVT juga bertanggung jawab untuk menampilkan data kepada pengguna, mirip dengan MVC.
+View: View dalam MVT juga bertanggung jawab untuk menampilkan data kepada pengguna, mirip dengan MVC.
 
 *Template: Template menggantikan peran Controller yang ada di MVC. Dalam MVT, View berperan dalam menerima input dari pengguna, memanipulasi Model sesuai input, dan menampilkan data yang diperbarui. Template adalah bagian yang mengatur bagaimana data ditampilkan dalam View.
 
 ---MVVM (Model-View-ViewModel)---
 
-*Model: Sama seperti dalam MVC dan MVT, Model di MVVM berisi data dan logika bisnis.
+Model: Sama seperti dalam MVC dan MVT, Model di MVVM berisi data dan logika bisnis.
 
-*View: View dalam MVVM bertanggung jawab untuk menampilkan data kepada pengguna. Namun, dalam MVVM, View sangat pasif dan hanya berfokus pada tampilan.
+View: View dalam MVVM bertanggung jawab untuk menampilkan data kepada pengguna. Namun, dalam MVVM, View sangat pasif dan hanya berfokus pada tampilan.
 
 *ViewModel: ViewModel adalah komponen yang menjembatani Model dan View. ViewModel mengelola data dari Model dan mengonversinya ke dalam format yang mudah ditampilkan oleh View. ViewModel juga menangani logika tampilan, sehingga View hanya perlu fokus pada tampilan dan interaksi dengan pengguna. ViewModel memungkinkan isolasi antara Model dan View.
 
