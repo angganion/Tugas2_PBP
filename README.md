@@ -3,7 +3,7 @@
 
 1. dalam mengerjakan tugas ini hal pertama yang saya lakukan adalah membuat sebuah repo di gthub dan mnambahakan readme.md beserta .gitignore, setelah selesai membuat repo tersebut saya mengcloning repo tersebut ke dalam directory local saya dengan git clone. setelah selesai memiliki repo git untuk tugas ini kemudia saya membuat virtual environment di dalam folder tersebut dan melakukan instalasi terhadapa semua requirents yang di butuhkan dengan melakukan command pip install requirments.txt. setelah itu saya menjalankan perintah "django-admin startproject inventory_gacor" untuk memulai project django. kemudian membuat app dengan "django-admin startapp main". kemudian saya menambahkan file urls.py dan mengisinya dengan beberapa line agar app main dapart dijangkau oleh user. kemudian saya membuat kelas item di models dan mengisinya dengan ketentuan yang ada. setelah itu saya mengisi views.py dan html nya
 
-2. 
+2. ![image](https://github.com/angganion/Tugas2_PBP/assets/120027733/9d8537d7-824e-4ef3-8c50-46a4c21f0a3d)
 
 3. Virtual Env di gunakan unntuk memepermudah kita saat melakukan pengerjaan project, karena dengan menggunakan env kita bisa menginstall banyak modul atau package yang tidak terhubung dengan komputer kita, dengan hal tersebut kita tidak perlu takut akan terjadi bentrok antara 1 package dengan package yang lain karena mungkin suatu saaat kita akan membuat 2 projrect dengan package yang sama namun dengan versi yang berbeda dan virtual env dapat mengatasi masalah seperti itu. jadi virtual env sebenarnya bukanlah hal yang wajib dan benar benar diperlukan saar membuat project django, namun itu adalah suatu langkah yang akan sangat mempermudah kita saat mengerjakan beberapa project bersaamaan yang berbeda
 
