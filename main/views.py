@@ -3,7 +3,7 @@ import requests
 from django.http import HttpResponse
 import random
 # Create your views here.\
-
+#tes
 def add_zero(a):
     kode = str(a)
     if len(kode) < 8:
