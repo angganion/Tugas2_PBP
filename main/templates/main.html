@@ -1,48 +1,70 @@
-<html>
-<body style="background-color:powderblue;">
-<head>
-    <strong>
-        <center>
-            <big>
-                <h1>
-                    Inventory Gacor
-                </h1>
-            </big>
-        </center>
-    </strong>
-</head>
-<!--
-<center>
-   <a href="https://youtu.be/YcfbEuqLSyk?si=IKa_by1Z6qKvurPz"> <img src="{{ random }}" alt="Gambar Acak" width="200" height="200"></a>
-</center> 
--->
-<center>
-    <a href='https://youtu.be/xvFZjo5PgG0?si=JZ-ebX8f-Ef07mmZ'> <img src="https://i.postimg.cc/d0BS4khx/Mega-Jackpot-Merah-Klikhoki.gif"></a>
-<center>
-<!--
-<center>
-    <b>
-        <h2>
-            <p>Nomor Hoki Anda {{ gacor }}</p>
-        </h2>
-    </b>
-</center>
--->
-<center>
-    <h5>
-        <b>
-            Nama:
-        </b>
-    </h5>
-    <p>Wahyu Ridho Anggoro<p>
-    <h5> 
-        <b>
-            Kelas:
-        </b>
-    </h5>
-    <p>PBP D<p> 
-</center>
-</body>
-</html>
+{% extends 'base.html' %}
 
-    
+{% block content %}
+    <center>
+        <h1>Inventory Gacor</h1>
+        <center>
+            <a href='https://youtu.be/xvFZjo5PgG0?si=JZ-ebX8f-Ef07mmZ'> <img src="https://i.postimg.cc/d0BS4khx/Mega-Jackpot-Merah-Klikhoki.gif"></a>
+        </center>
+        <h5>Name:</h5>
+        <p>{{ name }}</p>
+
+        <h5>Class:</h5>
+        <p>{{ class }}</p>
+
+        {% if products %}
+            <p>Kamu menyimpan {{ products|length }} item pada aplikasi ini</p>
+        {% else %}
+            <p>Tidak ada item yang disimpan pada aplikasi ini.</p>
+        {% endif %}
+        {% if products %}    
+        <table>
+            <thead>
+                <tr>
+                    <th>Name</th>
+                    <th>Amount</th>
+                    <th>Description</th>
+                    <th>Date Added</th>
+                    <th>Action</th>
+                </tr>
+            </thead>
+            <tbody>
+                {% comment %} Berikut cara memperlihatkan data produk di bawah baris ini {% endcomment %}
+
+                {% for product in products %}
+                    <tr>
+                        <td>{{ product.name }}</td>
+                        <td>
+                            {{ product.amount }}
+                        </td>
+                        <td>{{ product.description }}</td>
+                        <td>{{ product.date_added }}</td>
+                        <td>
+                            <form action="{% url 'main:increase_product_quantity' product.id %}" method="post" style="display: inline;">
+                                {% csrf_token %}
+                                <button type="submit">+</button>
+                            </form>
+                            <form action="{% url 'main:decrease_product_quantity' product.id %}" method="post" style="display: inline;">
+                                {% csrf_token %}
+                                <button type="submit">-</button>
+                            </form>
+                            <form action="{% url 'main:delete_product' product.id %}" method="post">
+                                {% csrf_token %}
+                                <button type="submit">Hapus</button>
+                            </form>
+                        </td>
+                    </tr>
+                {% endfor %}
+            </tbody>
+        </table>
+        {% endif %}
+
+        <br />
+
+        <a href="{% url 'main:create_product' %}">
+            <button>
+                Add New Product
+            </button>
+        </a>
+    </center>
+{% endblock content %}
