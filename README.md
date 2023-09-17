@@ -32,7 +32,9 @@ Model: Sama seperti dalam MVC dan MVT, Model di MVVM berisi data dan logika bisn
 
 View: View dalam MVVM bertanggung jawab untuk menampilkan data kepada pengguna. Namun, dalam MVVM, View sangat pasif dan hanya berfokus pada tampilan.
 
-*ViewModel: ViewModel adalah komponen yang menjembatani Model dan View. ViewModel mengelola data dari Model dan mengonversinya ke dalam format yang mudah ditampilkan oleh View. ViewModel juga menangani logika tampilan, sehingga View hanya perlu fokus pada tampilan dan interaksi dengan pengguna. ViewModel memungkinkan isolasi antara Model dan View.
+*ViewModel: ViewModel adalah komponen yang menjembatani Model dan View. ViewModel mengelola data dari Model dan mengonversinya ke dalam format yang mudah ditampilkan oleh View. ViewModel juga menangani logika tampilan, sehingga View hanya perlu fokus pada tampilan dan interaksi dengan pengguna. ViewModel 
+memungkinkan isolasi antara Model dan View.
 
+# Tugas3_PBP
 
 Jadi, perbedaan utama antara ketiga arsitektur ini adalah bagaimana penghubung antara Model dan View diatur. MVC menggunakan Controller, MVT menggunakan Template, sedangkan MVVM menggunakan ViewModel untuk menjaga isolasi dan pemisahan yang lebih baik antara komponen-komponen aplikasi
