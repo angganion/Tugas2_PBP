@@ -38,7 +38,18 @@ memungkinkan isolasi antara Model dan View.
 Jadi, perbedaan utama antara ketiga arsitektur ini adalah bagaimana penghubung antara Model dan View diatur. MVC menggunakan Controller, MVT menggunakan Template, sedangkan MVVM menggunakan ViewModel untuk menjaga isolasi dan pemisahan yang lebih baik antara komponen-komponen aplikasi
 
 # Tugas3_PBP
+Apa perbedaan antara form POST dan form GET dalam Django?Apa perbedaan utama antara XML, JSON, dan HTML dalam konteks pengiriman data?
+Mengapa JSON sering digunakan dalam pertukaran data antara aplikasi web modern?
+Jelaskan bagaimana cara kamu mengimplementasikan checklist di atas secara step-by-step (bukan hanya sekadar mengikuti tutorial).
 
-Apa perbedaan antara form POST dan form GET dalam Django?
+hal pertama yang saya lakukan saat mengerjakan tugas ini adalah membuat semua fungsi yang dibutuhkan yaitu view berdasarkan html, xml, json, xml by id, json by id. untuk html saya membuat sebuah file html baru bernama items.html yang isinya hanya daftar dari item yang ada, untuk xml dan json saya memakai serialize dan untuk by id saya memfilter item by id. setelah itu saya menambahkan semua urls ke dalam urls main. setelah itu saya mengerjakn html main untuk dapat mendisplay semua barang dengan forloop. setelah itu saya mengerjakn bagian bonus dengan memakai kondisi di html yang jika item ada maka akan di render banyak barang adalah item|legths dan jika item tidak ada akan di render tidak ada item di aplikasi
+
+![Screenshot 2023-09-17 204610](https://github.com/angganion/Tugas2_PBP/assets/120027733/6db4ee12-971d-4727-9f41-4b5a31ab9e7a)
+![Screenshot 2023-09-17 203953](https://github.com/angganion/Tugas2_PBP/assets/120027733/4ed0c94b-588f-4ba9-99de-b57ed1110eb1)
+![Screenshot 2023-09-17 204009](https://github.com/angganion/Tugas2_PBP/assets/120027733/d899c57b-3853-466e-ad85-4b38b4b6177f)
+![Screenshot 2023-09-17 204026](https://github.com/angganion/Tugas2_PBP/assets/120027733/0d634ca9-c350-49f6-aad1-5f9e21ae6510)
+![Screenshot 2023-09-17 204039](https://github.com/angganion/Tugas2_PBP/assets/120027733/4eafddf0-02de-4231-b9cd-1fa14e2edc69)
+
+
 
 
