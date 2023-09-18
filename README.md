@@ -38,9 +38,21 @@ memungkinkan isolasi antara Model dan View.
 Jadi, perbedaan utama antara ketiga arsitektur ini adalah bagaimana penghubung antara Model dan View diatur. MVC menggunakan Controller, MVT menggunakan Template, sedangkan MVVM menggunakan ViewModel untuk menjaga isolasi dan pemisahan yang lebih baik antara komponen-komponen aplikasi
 
 # Tugas3_PBP
-Apa perbedaan antara form POST dan form GET dalam Django?Apa perbedaan utama antara XML, JSON, dan HTML dalam konteks pengiriman data?
-Mengapa JSON sering digunakan dalam pertukaran data antara aplikasi web modern?
-Jelaskan bagaimana cara kamu mengimplementasikan checklist di atas secara step-by-step (bukan hanya sekadar mengikuti tutorial).
+1. Apa perbedaan antara form POST dan form GET dalam Django?
+
+form post berguna untuk mengirim data form ke dalam database server, sedangkan form get digunakan untuk mendapaatkan form dari user
+
+2. Apa perbedaan utama antara XML, JSON, dan HTML dalam konteks pengiriman data?
+
+XML adalah bahasa markup yang digunakan untuk menyimpan dan mengangkut data, JSON adalah format pertukaran data yang ringan, HTML adalah bahasa markup yang digunakan untuk membuat halaman web
+
+Dalam konteks pengiriman data, perbedaan utama antara ketiga format ini adalah cara mereka merepresentasikan data. HTML digunakan untuk merepresentasikan konten web, seperti teks, gambar, dan video. XML digunakan untuk merepresentasikan data terstruktur, seperti informasi produk atau informasi pelanggan. JSON juga digunakan untuk merepresentasikan data terstruktur, tetapi lebih sering digunakan dalam aplikasi web modern karena ukurannya yang lebih kecil dan kemampuannya untuk diurai dengan mudah oleh JavaScript.
+
+3. Mengapa JSON sering digunakan dalam pertukaran data antara aplikasi web modern?
+
+karena JSON lebih ringan dan lebih mudah untuk diakses
+
+4. Jelaskan bagaimana cara kamu mengimplementasikan checklist di atas secara step-by-step (bukan hanya sekadar mengikuti tutorial).
 
 hal pertama yang saya lakukan saat mengerjakan tugas ini adalah membuat file forms.py agar bisa membuat form, kemudian saya mengedit file html agar ada create product dan membuat fungsi create_product di views.py, kemudian saya membuat semua fungsi yang dibutuhkan yaitu view berdasarkan html, xml, json, xml by id, json by id. untuk html saya membuat sebuah file html baru bernama items.html yang isinya hanya daftar dari item yang ada, untuk xml dan json saya memakai serialize dan untuk by id saya memfilter item by id. setelah itu saya menambahkan semua urls ke dalam urls main. setelah itu saya mengerjakn html main untuk dapat mendisplay semua barang dengan forloop. setelah itu saya mengerjakn bagian bonus dengan memakai kondisi di html yang jika item ada maka akan di render banyak barang adalah item|legths dan jika item tidak ada akan di render tidak ada item di aplikasi
 
