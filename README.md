@@ -117,3 +117,10 @@ Pemantauan Jejak (Tracking): Cookies juga digunakan untuk melacak aktivitas peng
 pertama saya membuat fungsi registrasi dengan mengambil form dari bawaan django dan menaruhnya di views.py dan memberikan perintah ketika post form nya akan di masukkan dan disimpan. karena fungsi sudah selesai, kemudian saya membuat html untuk tampilan form yang akan diisi oleh pengguna. kemudian memasukkan urls nya ke urls.py, karena fungsi registrasi sudah selelesai saya kemudian membuat fungsi untuk login dari data registrasi yang telah disimpan, saya akan get username dan password user kemudian akan saya cek di data user jika ada akan saya balikan main page dan akan set cookie sehingga nanti bisa menampilkan cookie dan saya juga menambahkan cookie di context. jika tidak maka tidak akan masuk, setelah fungsi selesai saya membuat html login page pada templates untuk menampilkan halaman login user yang berisi tempat untuk username dan password. setelah itu saya menaruh urls login ke urls.py. kemudian saya menambahkan @login_required(login_url='/login') diatas show main agar saat kita membuka web tidak akan langsung masuk ke main page kecuali kita login terlebih dahulu. kemudian saya membuat fungsi logout dari bawaan django serta menambahkan perinth untuk hapus cookie jika melakukan logout
 
 setelah itu saya membuat fungsi untuk menyimpan user dengan barangnya masing masing, dengan memodifikasi models.py pada kelas item dengan menambahkan atribut user. sehingga setipa item akan unik ke user user tertentu saja. kemudian di fungsi create product di user saya menambahkan variable user ke dalam product tersebut. kemudian pada showmain saya akan menampilkan username dari login user kemudian di productnya saya akan fill berdasarkan usernya siapa sehingga product yang ditampilkan nanti hanya miliki si user ini
+
+
+---------2 user dengna 3 dummy data
+
+![Screenshot (295)](https://github.com/angganion/Tugas2_PBP/assets/120027733/bc99d360-a143-4b6e-b9cb-2337a030cd46)
+![Screenshot (296)](https://github.com/angganion/Tugas2_PBP/assets/120027733/deec4f9b-2b5f-451a-aa0b-23c3666c900a)
+
