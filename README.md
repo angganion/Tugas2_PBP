@@ -63,7 +63,7 @@ hal pertama yang saya lakukan saat mengerjakan tugas ini adalah membuat file for
 ![Screenshot 2023-09-17 204039](https://github.com/angganion/Tugas2_PBP/assets/120027733/4eafddf0-02de-4231-b9cd-1fa14e2edc69)
 
 
-#tugas4_PBP
+# tugas4_PBP
 
  ----------Apa itu Django UserCreationForm, dan jelaskan apa kelebihan dan kekurangannya?
 
@@ -72,12 +72,15 @@ Django UserCreationForm adalah sebuah bentuk (form) yang disediakan oleh Django 
 Kelebihan:
 
 ---Mudah Digunakan: UserCreationForm sudah siap pakai dan mengikuti konvensi Django, sehingga tidak perlu membuat form registrasi dari awal.
+
 ---Validasi Otomatis: Form ini mencakup validasi otomatis untuk memastikan data yang dimasukkan sesuai dengan kebutuhan seperti panjang password, format email, dsb.
+
 ---Integrasi dengan Model User: UserCreationForm secara otomatis terhubung dengan model User Django, yang membuat proses penyimpanan data pengguna ke database menjadi mudah.
 
 Kekurangan:
 
 ---Terbatas pada Fitur Bawaan: UserCreationForm memiliki fitur bawaan yang mungkin tidak sesuai dengan kebutuhan kita. Jika kita memerlukan atribut tambahan atau validasi kustom, perlu penyesuaian
+
 ---Tampilan Terbatas: Form ini tidak mengurus tampilan (UI) secara penuh. masih perlu mendesain tampilan registrasi yang sesuai dengan kebutuhan aplikasi yang di inginkan
 
 ----------Perbedaan antara autentikasi dan otorisasi dalam konteks Django, dan mengapa keduanya penting?
@@ -113,4 +116,4 @@ Pemantauan Jejak (Tracking): Cookies juga digunakan untuk melacak aktivitas peng
 
 pertama saya membuat fungsi registrasi dengan mengambil form dari bawaan django dan menaruhnya di views.py dan memberikan perintah ketika post form nya akan di masukkan dan disimpan. karena fungsi sudah selesai, kemudian saya membuat html untuk tampilan form yang akan diisi oleh pengguna. kemudian memasukkan urls nya ke urls.py, karena fungsi registrasi sudah selelesai saya kemudian membuat fungsi untuk login dari data registrasi yang telah disimpan, saya akan get username dan password user kemudian akan saya cek di data user jika ada akan saya balikan main page dan akan set cookie sehingga nanti bisa menampilkan cookie dan saya juga menambahkan cookie di context. jika tidak maka tidak akan masuk, setelah fungsi selesai saya membuat html login page pada templates untuk menampilkan halaman login user yang berisi tempat untuk username dan password. setelah itu saya menaruh urls login ke urls.py. kemudian saya menambahkan @login_required(login_url='/login') diatas show main agar saat kita membuka web tidak akan langsung masuk ke main page kecuali kita login terlebih dahulu. kemudian saya membuat fungsi logout dari bawaan django serta menambahkan perinth untuk hapus cookie jika melakukan logout
 
-setelah itu saya membuat fungsi untuk menyimpan user dengan barangnya masing masing
+setelah itu saya membuat fungsi untuk menyimpan user dengan barangnya masing masing, dengan memodifikasi models.py pada kelas item dengan menambahkan atribut user. sehingga setipa item akan unik ke user user tertentu saja. kemudian di fungsi create product di user saya menambahkan variable user ke dalam product tersebut. kemudian pada showmain saya akan menampilkan username dari login user kemudian di productnya saya akan fill berdasarkan usernya siapa sehingga product yang ditampilkan nanti hanya miliki si user ini
