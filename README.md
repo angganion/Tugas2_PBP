@@ -124,3 +124,112 @@ setelah itu saya membuat fungsi untuk menyimpan user dengan barangnya masing mas
 ![Screenshot (295)](https://github.com/angganion/Tugas2_PBP/assets/120027733/bc99d360-a143-4b6e-b9cb-2337a030cd46)
 ![Screenshot (296)](https://github.com/angganion/Tugas2_PBP/assets/120027733/deec4f9b-2b5f-451a-aa0b-23c3666c900a)
 
+
+# tugas5_PBP
+
+
+1. Jelaskan manfaat dari setiap element selector dan kapan waktu yang tepat untuk menggunakannya
+
+---universa Selector:  
+
+Manfaat: Universal selector memilih semua elemen dalam dokumen HTML.
+
+Kapan digunakan: Biasanya digunakan untuk memberikan gaya default atau reset pada semua elemen, tetapi harus digunakan dengan hati-hati karena dapat mempengaruhi semua elemen di halaman.
+
+---Type Selector (Element Selector):
+
+Manfaat: Memilih semua elemen dengan tipe tertentu (misalnya, <p>, <h1>, <a>).
+
+Kapan digunakan: Digunakan ketika Anda ingin memberikan gaya khusus pada tipe elemen tertentu.
+
+---Class Selector (.classname):
+
+Manfaat: Memilih semua elemen yang memiliki atribut class tertentu.
+
+Kapan digunakan: Berguna ketika Anda ingin menggabungkan beberapa elemen yang memiliki karakteristik atau fungsi yang sama.
+
+---ID Selector (#idname):
+
+Manfaat: Memilih elemen dengan ID tertentu.
+
+Kapan digunakan: Digunakan ketika Anda ingin memberikan gaya unik pada satu elemen tertentu. Sebaiknya hindari penggunaan ID selector untuk menggaya banyak elemen dengan gaya yang sama karena ID harus unik dalam satu halaman.
+
+---Attribute Selector ([attribute=value]):
+
+Manfaat: Memilih elemen yang memiliki atribut tertentu dengan nilai tertentu.
+
+Kapan digunakan: Berguna ketika Anda ingin menggaya elemen berdasarkan atribut mereka, seperti memilih semua tautan dengan atribut target="_blank".
+
+---Pseudo-class Selector (:pseudo-class):
+
+Manfaat: Memilih elemen berdasarkan kondisi atau interaksi pengguna, seperti :hover untuk menggaya saat kursor berada di atas elemen atau :focus untuk menggaya elemen yang sedang difokuskan.
+
+Kapan digunakan: Digunakan untuk menggaya elemen dalam respons terhadap tindakan pengguna tertentu.
+
+---Pseudo-element Selector (::pseudo-element):
+
+Manfaat: Memilih bagian-bagian tertentu dari elemen, seperti ::before untuk menambahkan konten sebelum elemen atau ::first-letter untuk menggaya huruf pertama dalam elemen.
+
+Kapan digunakan: Digunakan untuk menggaya bagian-bagian tertentu dari elemen.
+
+
+2. Jelaskan HTML5 Tag yang kamu ketahui?
+
+<header>: Digunakan untuk mengelompokkan elemen-elemen header di dalamnya, seperti judul, logo, dan navigasi.
+
+<nav>: Digunakan untuk mengelompokkan elemen-elemen navigasi, seperti menu utama, menu samping, atau tautan navigasi lainnya.
+
+<main>: Menandakan bagian utama dari halaman web yang berisi konten utama. Ini membantu dalam aksesibilitas dan SEO.
+
+<article>: Digunakan untuk mengelompokkan konten independen yang dapat berdiri sendiri, seperti postingan blog, artikel berita, atau komentar.
+
+<section>: Digunakan untuk mengelompokkan konten terkait dalam sebuah bagian dari halaman web. Ini membantu dalam strukturisasi dan semantik halaman.
+
+<aside>: Digunakan untuk mengelompokkan konten yang tidak terkait secara langsung dengan konten utama, seperti iklan, sidebar, atau elemen-elemen terkait lainnya.
+
+<time>: Digunakan untuk mengelompokkan informasi waktu, seperti tanggal atau jam. Ini dapat membantu dalam penguraian dan tampilan waktu dengan benar.
+
+<mark>: Digunakan untuk menyorot atau menandai teks dalam sebuah konten untuk menarik perhatian pengguna.
+
+<details> dan <summary>: <details> digunakan untuk mengelompokkan konten yang dapat diperluas atau dikurangi, sementara <summary> digunakan untuk memberikan judul atau label untuk konten yang dapat dikembangkan atau dilipat.
+
+<section>: Menandakan sebagian besar konten yang berdiri sendiri atau bagian terpisah dalam halaman web.
+
+<footer>: Digunakan untuk mengelompokkan elemen-elemen penutup di dalamnya, seperti informasi kontak, tautan ke halaman lain, atau hak cipta.
+
+<canvas>: Digunakan untuk menggambar grafis atau animasi menggunakan JavaScript. Ini sering digunakan untuk pembuatan permainan dan visualisasi data interaktif.
+
+<video> dan <audio>: Digunakan untuk menanamkan video atau audio di halaman web. Ini memungkinkan konten multimedia yang lebih kaya.
+
+<input type="email">, <input type="url">, <input type="date">, dan lain-lain: Input types ini memberikan validasi dan kontrol khusus untuk jenis data tertentu dalam formulir.
+
+<datalist>: Digunakan dengan input fields untuk menyediakan daftar pilihan yang dapat dipilih oleh pengguna.
+
+<progress>: Digunakan untuk menampilkan kemajuan suatu tugas, seperti mengunggah berkas atau proses pemrosesan.
+
+3. Jelaskan perbedaan antara margin dan padding.
+
+Margin adalah jarak di luar elemen dari semua sisi dan mempengaruhi jarak antara elemen ini dengan elemen-elemen lain di sekitarnya, seperti seberapa jauh elemen ini dari elemen-elemen lain.
+
+Padding, di sisi lain, adalah jarak di dalam elemen antara konten elemen dan batas elemen itu sendiri, seperti seberapa jauh teks atau gambar dari tepi elemen itu.
+
+Dengan kata lain, margin mengontrol seberapa jauh elemen dari elemen-elemen lain, sementara padding mengatur seberapa jauh kontennya dari tepi elemen itu sendiri.
+
+4. Jelaskan perbedaan antara framework CSS Tailwind dan Bootstrap. Kapan sebaiknya kita menggunakan Bootstrap daripada Tailwind, dan sebaliknya? 
+
+Bootstrap adalah sebuah framework CSS yang sudah memiliki desain dan komponen siap pakai, sehingga Anda cukup menggunakan kelas-kelas yang telah ditentukan untuk mengatur tampilan halaman web Anda dengan cepat. Bootstrap lebih cocok digunakan jika Anda ingin membuat halaman dengan tampilan yang konsisten dan cepat, tetapi mungkin memerlukan penyesuaian lebih lanjut untuk tampilan yang sangat spesifik.
+
+Tailwind CSS adalah sebuah framework CSS yang memberikan banyak kelas kecil yang dapat Anda tambahkan ke elemen HTML Anda untuk mengatur tampilan dan tata letak. Ini memberi Anda lebih banyak kendali, tetapi juga memerlukan lebih banyak penulisan kode. Tailwind cocok jika Anda ingin lebih banyak kreativitas dalam mendesain tampilan halaman web Anda atau jika Anda ingin menghindari desain yang terlalu seragam.
+
+Kapan sebaiknya menggunakan Bootstrap atau Tailwind:
+
+Bootstrap: Gunakan Bootstrap jika ingin membuat halaman web dengan cepat, tanpa banyak pekerjaan desain tambahan, dan jika ingin tampilan yang konsisten. Ini juga baik untuk proyek besar dengan banyak pengembang, karena aturan yang jelas dapat membantu menghindari kebingungan.
+
+Tailwind CSS: Gunakan Tailwind jika ingin lebih banyak kendali dalam desain tampilan, atau jika Anda bekerja pada proyek dengan desain yang sangat spesifik. Ini cocok jika ingin berkreasi dalam desain 
+
+5. Jelaskan bagaimana cara kamu mengimplementasikan checklist di atas secara step-by-step (bukan hanya sekadar mengikuti tutorial).
+
+
+hal pertama yang saya lakukan yaitu mengambil bootstrap dengan menambahkan link css bootsrap beserta js nya di base.html, setelah melakukan itu saya mulai mengedit html pada login, register dan add product, di 3 html itu saya melakukan hal yang hampir sama persis, yaitu menambahkan container, menambahkan card mt5 menambahkan button dan mengubah warna menjadi biru di sebagian tombol. setelah itu saya baru mulai mengedit html pada bagian main dengan mengubah warna tombol dan letaknya, kemudian melakukan style pada tabelnya 
+
+

@@ -1,0 +1,44 @@
+/* styles.css */
+
+/* Custom CSS untuk kotak form login */
+.login-card {
+    background-color: #f61111; /* Warna latar belakang */
+    border: 2px solid #007bff; /* Warna garis */
+    border-radius: 10px; /* Sudut bulat pada kotak */
+    padding: 20px; /* Ruang dalam kotak */
+    box-shadow: 0px 0px 10px rgba(0, 0, 0, 0.1); /* Efek bayangan */
+}
+
+/* Animasi garis berjalan */
+@keyframes moveLine {
+    0% {
+        background-position: 100% 0;
+    }
+    100% {
+        background-position: -100% 0;
+    }
+}
+
+/* Stil input form */
+.login-card input.form-control {
+    border: 2px solid #007bff; /* Warna garis input */
+    border-radius: 5px; /* Sudut bulat pada input */
+}
+
+/* Menerapkan animasi garis berjalan ke input form */
+.login-card input.form-control:focus {
+    background-image: linear-gradient(90deg, #007bff, #ff0000);
+    animation: moveLine 1.5s linear infinite;
+    color: #fff; /* Warna teks saat fokus */
+}
+
+/* Tombol Login */
+.login-card button.btn-primary {
+    background-color: #007bff; /* Warna tombol */
+    border: none; /* Hapus border tombol */
+}
+
+/* Tautan Register Now */
+.login-card p a {
+    color: #ff0000; /* Warna tautan */
+}
