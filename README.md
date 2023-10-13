@@ -260,3 +260,4 @@ pertama saya mengedit views.py untuk menambahkan fungsi get product by json dan 
 di main html saya membuat modal untuk ajax add product kemudian membuat script refresh product, get product dan add product, dimana nanti akan mengambil data dengan get product kemudian di refresh, saya menaruh inner html scripts. dan delete juga memanggil fungsi di views.py
 
 
+link aplikasi = http://wahyu-ridho-tugas.pbp.cs.ui.ac.id/
