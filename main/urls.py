@@ -3,6 +3,9 @@ from main.views import show_main, create_product, show_html, show_xml, show_json
 from main.views import register
 from main.views import login_user
 from main.views import logout_user
+from . import views
+from main.views import get_product_json
+from main.views import add_product_ajax
 
 app_name = 'main'
 
@@ -20,4 +23,6 @@ urlpatterns = [
     path('register/', register, name='register'),
     path('login/', login_user, name='login'),
     path('logout/', logout_user, name='logout'),
+    path('get-product/', get_product_json, name='get_product_json'),
+    path('create-product-ajax/', add_product_ajax, name='add_product_ajax')
 ]

@@ -3,7 +3,7 @@ from django.http import HttpResponseRedirect
 from main.forms import ProductForm
 from django.urls import reverse
 from .models import Item
-from django.http import HttpResponse
+from django.http import HttpResponse, JsonResponse
 from django.core import serializers
 import requests
 import random
@@ -16,6 +16,8 @@ from django.contrib.auth.decorators import login_required
 import datetime
 from django.http import HttpResponseRedirect
 from django.urls import reverse
+from django.views.decorators.csrf import csrf_exempt
+from django.http import HttpResponseNotFound
 
 def add_zero(a):
     kode = str(a)
@@ -23,7 +25,7 @@ def add_zero(a):
         kode = ("0"*(8-len(kode))) + str(a)
     return kode
 
-@login_required(login_url='main:login')
+#@login_required(login_url='main:login')
 def show_main(request):
     item = Item.objects.filter(user=request.user)
     context = {
@@ -33,7 +35,7 @@ def show_main(request):
         'random' : 'https://94.131.113.17/wp-content/uploads/2023/06/okep.gif',
         'gacor' : add_zero(random.choice(range(1000, 10000000))),
         'products': item,
-        'last_login': request.COOKIES['last_login'],
+        #'last_login': request.COOKIES['last_login'],
     }
 
     return render(request, "main.html", context)
@@ -73,16 +75,24 @@ def show_json_by_id(request, id):
     return HttpResponse(serializers.serialize("json", data), content_type="application/json")
 
 def delete_product(request, id):
-    # Temukan produk yang akan dihapus berdasarkan ID
-    item = Item.objects.filter(pk=id)
+    try:
+        # Temukan produk yang akan dihapus berdasarkan ID
+        item = get_object_or_404(Item, pk=id)
 
-    # Hapus produk dari database
-    if item.exists():
-        # Hapus item
+        # Hapus produk dari database
         item.delete()
 
-    # Redirect ke halaman lain setelah menghapus produk, misalnya, kembali ke halaman daftar produk
-    return redirect('main:show_main')
+        # Respon JSON yang menandakan penghapusan berhasil
+        return JsonResponse({'message': 'Produk berhasil dihapus'}, status=204)
+
+    except Item.DoesNotExist:
+        # Respon JSON yang menandakan bahwa produk tidak ditemukan
+        return JsonResponse({'message': 'Produk tidak ditemukan'}, status=404)
+
+    except Exception as e:
+        # Respon JSON yang menandakan kesalahan server
+        return JsonResponse({'message': 'Terjadi kesalahan server'}, status=500)
+
 def increase_product_quantity(request, id):
     # Temukan produk yang akan ditambahkan berdasarkan ID
     item = get_object_or_404(Item, pk=id)
@@ -140,4 +150,26 @@ def logout_user(request):
     response = HttpResponseRedirect(reverse('main:login'))
     response.delete_cookie('last_login')
     return response
+
+def get_product_json(request):
+    product_item = Item.objects.filter(user=request.user)
+    return HttpResponse(serializers.serialize('json', product_item))
+
+@csrf_exempt
+@login_required
+def add_product_ajax(request):
+
+    if request.method == 'POST':
+        name = request.POST.get("name")
+        price = request.POST.get("amount")
+        description = request.POST.get("description")
+        rarity = request.POST.get("rarity")
+        user = request.user
+
+        new_product = Item(name=name, amount=price, description=description, rarity=rarity, user=user)
+        new_product.save()
+
+        return HttpResponse(b"CREATED", status=201)
+
+    return HttpResponseNotFound()
 

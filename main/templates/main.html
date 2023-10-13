@@ -3,10 +3,17 @@
 {% block content %}
 <div class="container">
     <div class="text-center mt-5">
+        <img src="https://static.wixstatic.com/media/8f3a12_4759b5c18d1c4434a822183ce9c57e69~mv2.gif" alt="zeus" class="img-fluid mt-3" >
+    </div>
+    <div class="text-center mt-5">
         <h1 class="display-4">Inventory Gacor</h1>
         <a href='https://youtu.be/xvFZjo5PgG0?si=JZ-ebX8f-Ef07mmZ'>
             <img src="https://i.postimg.cc/d0BS4khx/Mega-Jackpot-Merah-Klikhoki.gif" alt="Jackpot Image" class="img-fluid mt-3">
         </a>
+        <img src="https://static.wixstatic.com/media/a11bb7_4e6b912872f84d19b9d58d56160f0e3c~mv2.png/v1/fill/w_230,h_414,al_c,q_85,usm_0.66_1.00_0.01,enc_auto/Kakek%20Zeus.png" alt="zeus" class="img-fluid mt-3" >
+    </div>
+    <div class="text-center mt-5">
+        <img src="https://r2.community.samsung.com/t5/image/serverpage/image-id/3681220iA452AE0A0FA6A8F1?v=v2" alt="500" class="img-fluid mt-3" >
     </div>
     <div class="mt-5">
         <h5>Name:</h5>
@@ -15,61 +22,134 @@
         <h5>Class:</h5>
         <p>{{ class }}</p>
 
-        {% if products %}
-            <p>Kamu menyimpan {{ products|length }} item pada aplikasi ini</p>
-        {% else %}
-            <p>Tidak ada item yang disimpan pada aplikasi ini.</p>
-        {% endif %}
-        {% if products %}    
-        <table class="table table-striped mt-3">
-            <thead>
-                <tr>
-                    <th>Name</th>
-                    <th>Amount</th>
-                    <th>Description</th>
-                    <th>Date Added</th>
-                    <th>Action</th>
-                </tr>
-            </thead>
-            <tbody>
-            {% for product in products %}
-            <tr>
-                <td>{{ product.name }}</td>
-                <td>{{ product.amount }}</td>
-                <td>{{ product.description }}</td>
-                <td>{{ product.date_added }}</td>
-                <td>
-                    <form action="{% url 'main:increase_product_quantity' product.id %}" method="post" style="display: inline;">
-                        {% csrf_token %}
-                        <button type="submit" class="btn btn-primary btn-sm">+</button>
-                    </form>
-                    <form action="{% url 'main:decrease_product_quantity' product.id %}" method="post" style="display: inline;">
-                        {% csrf_token %}
-                        <button type="submit" class="btn btn-danger btn-sm">-</button>
-                    </form>
-                    <form action="{% url 'main:delete_product' product.id %}" method="post" style="display: inline;">
-                        {% csrf_token %}
-                        <button type="submit" class="btn btn-warning btn-sm">Hapus</button>
-                    </form>
-                </td>
-            </tr>
-            {% if forloop.first %}
-            <style>
-                tr:last-child {
-                    background-color: #f8d7da;
-                }
-            </style>
-            {% endif %}
-        {% endfor %}
-
-            </tbody>
-        </table>
-        {% endif %}
+        <div class="row mt-3" id="product_table">
+            <!-- Ini adalah tempat untuk menampilkan daftar produk -->
+        </div>
     </div>
     <div class="text-center mt-3">
         <a href="{% url 'main:create_product' %}" class="btn btn-success">Add New Product</a>
+        <button type="button" class="btn btn-primary" data-bs-toggle="modal" data-bs-target="#exampleModal">Add Product by AJAX</button>
         <a href="{% url 'main:logout' %}" class="btn btn-danger">Logout</a>
         <h5 class="mt-3">Sesi terakhir login: {{ last_login }}</h5>
     </div>
 </div>
+
+<div class="modal fade" id="exampleModal" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
+    <div class="modal-dialog">
+        <div class="modal-content">
+            <div class="modal-header">
+                <h1 class="modal-title fs-5" id="exampleModalLabel">Add New Product</h1>
+                <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+            </div>
+            <div class="modal-body">
+                <form id="form" onsubmit="return false;">
+                    {% csrf_token %}
+                    <div class="mb-3">
+                        <label for="name" class="col-form-label">Name:</label>
+                        <input type="text" class="form-control" id="name" name="name"></input>
+                    </div>
+                    <div class="mb-3">
+                        <label for="amount" class="col-form-label">Amount:</label>
+                        <input type="number" class="form-control" id="amount" name="amount">
+                    </div>
+                    <div class="mb-3">
+                        <label for="description" class="col-form-label">Description:</label>
+                        <textarea class="form-control" id="description" name="description"></textarea>
+                    </div>
+                    <div class="mb-3">
+                        <label for="rarity" class="col-form-label">rarity:</label>
+                        <input type="number" class="form-control" id="rarity" name="rarity"></input>
+                    </div>
+                </form>
+            </div>
+            <div class="modal-footer">
+                <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Close</button>
+                <button type="button" class="btn btn-primary" id="button_add" data-bs-dismiss="modal">Add Product</button>
+            </div>
+        </div>
+    </div>
+</div>
+
+<script>
+    async function getProducts() {
+        return fetch("{% url 'main:get_product_json' %}").then((res) => res.json())
+    }
+
+    async function refreshProducts() {
+        document.querySelector("#product_table").innerHTML = "";
+        const products = await getProducts();
+        
+        products.forEach((item) => {
+            const card = document.createElement("div");
+            card.className = "card mb-4";
+
+            const cardBody = document.createElement("div");
+            cardBody.className = "card-body";
+
+            const cardTitle = document.createElement("h5");
+            cardTitle.className = "card-title";
+            cardTitle.innerText = item.fields.name;
+
+            const cardText = document.createElement("p");
+            cardText.className = "card-text";
+            cardText.innerHTML = `<strong>Amount:</strong> ${item.fields.amount}<br><strong>Description:</strong> ${item.fields.description}<br><strong>Rarity:</strong> ${item.fields.rarity}<br><strong>Date Added:</strong> ${item.fields.date_added}`;
+
+            cardBody.appendChild(cardTitle);
+            cardBody.appendChild(cardText);
+            // Tambahkan tombol "Delete Product"
+            const deleteButton = document.createElement("button");
+            deleteButton.className = "btn btn-danger";
+            deleteButton.innerText = "Delete Product";
+            deleteButton.onclick = function () {
+                // Panggil fungsi deleteProduct dengan ID produk yang sesuai
+                deleteProduct(item.pk);
+            };
+
+            cardBody.appendChild(deleteButton);
+
+            card.appendChild(cardBody);
+
+            document.querySelector("#product_table").appendChild(card);
+        });
+    }
+
+    refreshProducts()
+
+    function addProduct() {
+        fetch("{% url 'main:add_product_ajax' %}", {
+            method: "POST",
+            body: new FormData(document.querySelector('#form'))
+        }).then(refreshProducts)
+
+        document.getElementById("form").reset()
+        return false
+    }
+
+    document.getElementById("button_add").onclick = addProduct
+
+    async function deleteProduct(productId) {
+        try {
+            const csrfToken = document.querySelector('[name=csrfmiddlewaretoken]').value;
+            const response = await fetch(`/delete_product/${productId}/`, {
+                method: "DELETE",
+                headers: {
+                    "Content-Type": "application/json",
+                    "X-CSRFToken": csrfToken,
+                },
+            });
+
+            if (response.status === 204) {
+                refreshProducts();
+            } else {
+                alert("Gagal menghapus produk");
+                print(response.status)
+            }
+        } catch (error) {
+            console.error("Error:", error);
+            alert("Terjadi kesalahan saat menghapus produk");
+        }
+    }
+
+</script>
+
 {% endblock content %}

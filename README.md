@@ -232,4 +232,31 @@ Tailwind CSS: Gunakan Tailwind jika ingin lebih banyak kendali dalam desain tamp
 
 hal pertama yang saya lakukan yaitu mengambil bootstrap dengan menambahkan link css bootsrap beserta js nya di base.html, setelah melakukan itu saya mulai mengedit html pada login, register dan add product, di 3 html itu saya melakukan hal yang hampir sama persis, yaitu menambahkan container, menambahkan card mt5 menambahkan button dan mengubah warna menjadi biru di sebagian tombol. setelah itu saya baru mulai mengedit html pada bagian main dengan mengubah warna tombol dan letaknya, kemudian melakukan style pada tabelnya 
 
+# Tugas6
+
+Jelaskan perbedaan antara asynchronous programming dengan synchronous programming??
+
+Asynchronous programming dan synchronous programming adalah dua paradigma pemrograman yang berbeda dalam penanganan eksekusi tugas atau operasi. Dalam synchronous programming, tugas-tugas dieksekusi secara berurutan, satu per satu, dan program akan menunggu hingga tugas saat ini selesai sebelum melanjutkan ke yang berikutnya. Di sisi lain, asynchronous programming memungkinkan tugas-tugas untuk dieksekusi secara bersamaan, tanpa harus menunggu yang satu selesai sebelum yang lain dimulai. Ini dapat meningkatkan efisiensi dalam penanganan tugas-tugas yang membutuhkan waktu, seperti operasi jaringan atau IO, karena program dapat terus berjalan sambil menunggu respons dari operasi tersebut, tanpa harus menghentikan seluruh proses eksekusi.
+
+Dalam penerapan JavaScript dan AJAX, terdapat penerapan paradigma event-driven programming. Jelaskan maksud dari paradigma tersebut dan sebutkan salah satu contoh penerapannya pada tugas ini.
+
+Paradigma event-driven programming dalam JavaScript dan AJAX mengacu pada pendekatan di mana program merespons peristiwa (events) yang terjadi, seperti klik tombol atau respons dari server, tanpa harus menunggu secara aktif. Sebagai contoh, dalam pengembangan aplikasi web, kita dapat menggunakan event-driven programming untuk mengatur tindakan apa yang harus diambil saat pengguna mengklik tombol "Kirim" pada formulir, seperti mengirim data ke server dan menampilkan responsnya tanpa menghentikan proses program secara keseluruhan.\
+
+Jelaskan penerapan asynchronous programming pada AJAX.
+
+Penerapan asynchronous programming pada AJAX (Asynchronous JavaScript and XML) memungkinkan aplikasi web untuk mengirim permintaan (request) ke server dan menerima respons tanpa harus menghentikan eksekusi program utama. Dengan cara ini, aplikasi dapat tetap responsif dan berlanjut dalam menangani tugas-tugas lain sambil menunggu respons dari server.
+
+Pada dasarnya, saat sebuah permintaan AJAX dikirim, program JavaScript akan melanjutkan eksekusinya tanpa harus menunggu respons datang kembali dari server. Ketika respons diterima, event handling atau callback functions digunakan untuk menangani data yang dikembalikan dari server. Ini memungkinkan aplikasi untuk menjalankan operasi lain atau merespons input pengguna tanpa mengalami kehentian.
+
+Penerapan ini sangat berguna dalam pengembangan aplikasi web interaktif yang mengharuskan komunikasi antara browser dan server, seperti mengambil data dari server atau mengirim data ke server tanpa mengganggu pengalaman pengguna. Contoh penerapannya adalah penggunaan metode XMLHttpRequest atau fetch dalam JavaScript untuk membuat permintaan HTTP asynchronous dan menangani responsnya secara non-blocking.
+
+Pada PBP kali ini, penerapan AJAX dilakukan dengan menggunakan Fetch API daripada library jQuery. Bandingkanlah kedua teknologi tersebut dan tuliskan pendapat kamu teknologi manakah yang lebih baik untuk digunakan.
+
+Fetch API adalah lebih ringan, fleksibel, dan memanfaatkan Promises untuk manajemen asynchronous, sementara jQuery, yang lebih sederhana dalam sintaks dan cocok untuk kompatibilitas lintas browser, bisa dipilih tergantung pada kebutuhan dan preferensi pengembangan Anda, dengan kecenderungan penggunaan Fetch API untuk aplikasi modern.
+
+Jelaskan bagaimana cara kamu mengimplementasikan checklist di atas secara step-by-step (bukan hanya sekadar mengikuti tutorial).
+
+pertama saya mengedit views.py untuk menambahkan fungsi get product by json dan fungsi add product dengan ajax serta hapus item dengan ajax, di get item saya memngambil item by user kemudian dengan serialize mengembalikannya sebagai json. di add product saya mengambil demgan get dari post di main modal dan membuat item baru kemudian di save, dan kemudian membalikkan sttaus. di delete saya melakukan delete by id, kemudian membalikkan status. kemudian saya tambahkan semua ke urls.py
+di main html saya membuat modal untuk ajax add product kemudian membuat script refresh product, get product dan add product, dimana nanti akan mengambil data dengan get product kemudian di refresh, saya menaruh inner html scripts. dan delete juga memanggil fungsi di views.py
+
 
