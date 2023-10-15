@@ -25,7 +25,7 @@ def add_zero(a):
         kode = ("0"*(8-len(kode))) + str(a)
     return kode
 
-#@login_required(login_url='main:login')
+@login_required(login_url='main:login')
 def show_main(request):
     item = Item.objects.filter(user=request.user)
     context = {
@@ -35,7 +35,7 @@ def show_main(request):
         'random' : 'https://94.131.113.17/wp-content/uploads/2023/06/okep.gif',
         'gacor' : add_zero(random.choice(range(1000, 10000000))),
         'products': item,
-        #'last_login': request.COOKIES['last_login'],
+        'last_login': request.COOKIES['last_login'],
     }
 
     return render(request, "main.html", context)
